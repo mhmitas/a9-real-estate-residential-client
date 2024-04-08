@@ -3,10 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { auth } from '../../firebase/firbase.config';
 import { signOut } from 'firebase/auth';
-import default_avatur from '../../assets/profile-avatur.jpeg'
+import default_avatur from '../../assets/profile-avatur.jpeg';
+
+
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     // console.log(user);
 
     const routes = [
@@ -46,33 +48,46 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        // if user? log out : login
-                        user ?
-                            <div className='flex gap-4 items-center'>
-                                <div className="dropdown dropdown-end">
-                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                        <div className="w-10 rounded-full">
-                                            {
-                                                user?.photoURL ?
-                                                    <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
-                                                    :
-                                                    <img alt="Tailwind CSS Navbar component" src={default_avatur} />
-                                            }
-                                        </div>
-                                    </div>
-                                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-200 rounded-box w-52">
-                                        <li>
-                                            <Link className="justify-between">
-                                                Profile
-                                            </Link>
-                                        </li>
-                                        {/* <li><a>Settings</a></li> */}
-                                        <li><button onClick={handleLogOut}>Log out</button></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        loading ?
+                            <span className="loading loading-bars text-primary"></span>
+                            // <p>Loading...</p>
                             :
-                            <Link to="/login" className="btn btn-ghost ">Login</Link>
+                            <div>
+                                {
+                                    // if user? log out : login
+                                    user ?
+                                        <div className='flex gap-4 items-center'>
+                                            <div className="dropdown dropdown-end">
+                                                <div
+                                                    data-tooltip-id="my-tooltip" data-tooltip-content="Here i will show username"
+                                                    tabIndex={0}
+                                                    role="button"
+                                                    className="btn btn-ghost btn-circle avatar"
+                                                >
+                                                    <div className="w-10 rounded-full">
+                                                        {
+                                                            user?.photoURL ?
+                                                                <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+                                                                :
+                                                                <img alt="Tailwind CSS Navbar component" src={default_avatur} />
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-200 rounded-box w-52">
+                                                    <li>
+                                                        <Link className="justify-between">
+                                                            Profile
+                                                        </Link>
+                                                    </li>
+                                                    {/* <li><a>Settings</a></li> */}
+                                                    <li><button onClick={handleLogOut}>Log out</button></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        :
+                                        <Link to="/login" className="btn btn-ghost ">Login</Link>
+                                }
+                            </div>
                     }
                 </div>
             </div>

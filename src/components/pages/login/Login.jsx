@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 
 
 const Login = () => {
-    const { login } = useContext(AuthContext)
+    const { login, googleLogin } = useContext(AuthContext)
 
     const {
         register,
@@ -26,7 +26,12 @@ const Login = () => {
     }
 
     function handleGooleSignIn() {
-
+        googleLogin()
+            .then(result => {
+                console.log(result);
+            }).catch(error => {
+                console.error(error);
+            })
     }
     function handleTwitterSignIn() {
 

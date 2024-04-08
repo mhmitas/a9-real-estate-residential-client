@@ -59,7 +59,7 @@ const Navbar = () => {
                                         <div className='flex gap-4 items-center'>
                                             <div className="dropdown dropdown-end">
                                                 <div
-                                                    data-tooltip-id="my-tooltip" data-tooltip-content="Here i will show username"
+                                                    data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}
                                                     tabIndex={0}
                                                     role="button"
                                                     className="btn btn-ghost btn-circle avatar"
@@ -75,9 +75,7 @@ const Navbar = () => {
                                                 </div>
                                                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-200 rounded-box w-52">
                                                     <li>
-                                                        <Link className="justify-between">
-                                                            Profile
-                                                        </Link>
+                                                        <Link to="/profile" className="justify-between">Profile</Link>
                                                     </li>
                                                     {/* <li><a>Settings</a></li> */}
                                                     <li><button onClick={handleLogOut}>Log out</button></li>

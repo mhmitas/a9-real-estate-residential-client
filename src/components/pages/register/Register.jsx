@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
+import { auth } from '../../../firebase/firbase.config';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
@@ -13,10 +15,15 @@ const Register = () => {
     } = useForm()
 
     function onSubmit(data) {
-        const { email, password } = data;
+        const { email, password, name } = data;
         createUser(email, password)
             .then(result => {
                 console.log(result);
+                if (name) {
+                    updateProfile(auth.currentUser, {
+                        displayName: name,
+                    })
+                }
             }).catch(error => {
                 console.error(error);
             })
@@ -33,7 +40,10 @@ const Register = () => {
                     <input
                         {...register("name")}
                         type="text"
-                        className='input input-primary' name="name" placeholder='Name'
+                        required
+                        className='input input-primary'
+                        name="name"
+                        placeholder='Username'
                     />
                     <input
                         type="email"

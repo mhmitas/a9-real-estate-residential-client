@@ -6,6 +6,7 @@ import Login from "../components/pages/login/Login";
 import Register from "../components/pages/register/Register";
 import PropertyDetails from "../components/pages/properties/property-details/PropertyDetails";
 import PrivetRoute from "../components/provet-route/PrivetRoute";
+import Profile from "../components/pages/profile/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
                 </PrivetRoute>,
                 loader: () => fetch('/estate-data.json')
             },
+            {
+                path: "/profile",
+                element: <PrivetRoute><Profile></Profile></PrivetRoute>
+            }
         ]
     },
 ]);

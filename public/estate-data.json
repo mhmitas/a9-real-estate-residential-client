@@ -1,0 +1,171 @@
+[
+    {
+        "id": "1",
+        "estate_title": "Beautiful Single-Family Home in Los Angeles",
+        "image": "https://i.ibb.co/gvST7Fp/home-02.jpg",
+        "segment_name": "Single-family home",
+        "description": "This stunning single-family home located in the heart of Los Angeles offers luxurious living with modern amenities.",
+        "price": "$1,200,000",
+        "status": "sale",
+        "area": "2,500 sq ft",
+        "location": "Los Angeles, California",
+        "facilities": [
+            "Living Room with hardwood floors",
+            "Updated Kitchen with granite countertops and stainless steel appliances",
+            "Two bedrooms with ample closet space",
+            "Full bathroom with shower-tub combination",
+            "Beautiful backyard with patio and mature trees",
+            "One-car garage"
+        ],
+        "detail_description": {
+            "living room": "The living room is elegantly designed with ample space for entertainment and relaxation.",
+            "kitchen": "The gourmet kitchen features high-end appliances, granite countertops, and plenty of storage space.",
+            "swimming pool": "Enjoy your own private oasis with a sparkling swimming pool, perfect for hot summer days.",
+            "bedrooms": "Four spacious bedrooms offer comfort and privacy for the whole family.",
+            "bathrooms": "Three modern bathrooms feature sleek fixtures and plenty of natural light.",
+            "backyard": "The landscaped backyard provides a tranquil retreat with lush greenery and a patio area for outdoor dining."
+        }
+    },
+    {
+        "id": "2",
+        "estate_title": "Charming Single-Family Home in San Francisco",
+        "image": "https://i.ibb.co/xDTPt9s/8074.jpg",
+        "segment_name": "Single-family home",
+        "description": "This charming single-family home nestled in the scenic hills of San Francisco offers breathtaking views and serene surroundings.",
+        "price": "$1,500,000",
+        "status": "rent",
+        "area": "2,200 sq ft",
+        "location": "San Francisco, California",
+        "facilities": [
+            "Living Room with fireplace",
+            "Gourmet Kitchen with stainless steel appliances",
+            "Master suite with spa-like bathroom",
+            "Private swimming pool and patio",
+            "Two additional bedrooms with ample closet space",
+            "Two-car garage"
+        ],
+        "detail_description": {
+            "living room": "The living room features a cozy fireplace and large windows, allowing for abundant natural light and stunning views.",
+            "kitchen": "The gourmet kitchen is equipped with top-of-the-line appliances and custom cabinetry, making it a chef's dream.",
+            "bedrooms": "Three spacious bedrooms offer comfort and relaxation, with the master suite boasting a private balcony.",
+            "bathrooms": "Two full bathrooms and a powder room feature elegant fixtures and finishes.",
+            "home office": "A dedicated home office space provides a quiet and productive environment for remote work or study."
+        }
+    },
+    {
+        "id": "3",
+        "estate_title": "Luxurious Apartment in Downtown San Francisco",
+        "image": "https://i.ibb.co/x8F6qnz/Apartments-1.jpg",
+        "segment_name": "Apartment",
+        "description": "Experience luxury living in this stylish apartment located in the vibrant heart of downtown San Francisco.",
+        "price": "$3,500,000",
+        "status": "sale",
+        "area": "2,000 sq ft",
+        "location": "San Francisco, California",
+        "facilities": [
+            "2 bedrooms",
+            "2.5 bathrooms",
+            "Spacious living area",
+            "Modern kitchen",
+            "Private balcony",
+            "Fitness center",
+            "24/7 concierge"
+        ],
+        "detail_description": {
+            "living area": "The spacious living area features floor-to-ceiling windows, offering breathtaking views of the city skyline.",
+            "kitchen": "The modern kitchen is equipped with high-end appliances, sleek countertops, and ample storage space.",
+            "bedrooms": "Two luxurious bedrooms provide comfort and privacy, each with its own en-suite bathroom.",
+            "bathrooms": "Two and a half bathrooms boast designer fixtures and finishes, creating a spa-like retreat.",
+            "private balcony": "Enjoy fresh air and stunning city views from your own private balcony.",
+            "fitness center": "Stay active and healthy with access to the on-site fitness center, equipped with state-of-the-art equipment.",
+            "concierge": "Benefit from 24/7 concierge services, providing assistance with reservations, package delivery, and more."
+        }
+    },
+    {
+        "id": "4",
+        "estate_title": "Modern Apartment in Silicon Valley",
+        "image": "https://i.ibb.co/Jky80jN/apartment-01.jpg",
+        "segment_name": "Apartment",
+        "description": "This modern apartment offers convenient living in the heart of Silicon Valley, with easy access to tech campuses and amenities.",
+        "price": "$2,800 per month",
+        "status": "rent",
+        "area": "1,500 sq ft",
+        "location": "Mountain View, California",
+        "facilities": [
+            "1 bedroom",
+            "1 bathroom",
+            "Open-concept living area",
+            "Fully equipped kitchen",
+            "Community pool",
+            "Fitness center",
+            "On-site laundry"
+        ],
+        "detail_description": {
+            "living area": "The open-concept living area is perfect for entertaining, with ample space for dining and relaxation.",
+            "kitchen": "The fully equipped kitchen features modern appliances and sleek cabinetry, ideal for preparing meals at home.",
+            "bedroom": "The spacious bedroom offers comfort and tranquility, with large windows allowing for plenty of natural light.",
+            "bathroom": "The stylish bathroom includes a bathtub/shower combo and contemporary fixtures.",
+            "community pool": "Cool off on hot days with access to the community pool, surrounded by lush landscaping.",
+            "fitness center": "Stay active and fit with access to the on-site fitness center, equipped with cardio machines and weights.",
+            "laundry": "Convenience is key with on-site laundry facilities available for residents."
+        }
+    },
+    {
+        "id": "5",
+        "estate_title": "Seaside Villa in Malibu",
+        "image": "https://i.ibb.co/YLtNkNW/vacation-rental-2.jpg",
+        "segment_name": "Vacation Rental",
+        "description": "Escape to this luxurious seaside villa nestled along the pristine beaches of Malibu, offering unparalleled ocean views and serenity.",
+        "price": "$1,200 per night",
+        "status": "rent",
+        "area": "3,000 sq ft",
+        "location": "Malibu, California",
+        "facilities": [
+            "4 bedrooms",
+            "4.5 bathrooms",
+            "Oceanfront terrace",
+            "Private beach access",
+            "Infinity pool",
+            "Outdoor kitchen",
+            "Home theater"
+        ],
+        "detail_description": {
+            "bedrooms": "Four spacious bedrooms provide comfortable accommodations for up to eight guests, each with its own en-suite bathroom.",
+            "bathrooms": "Four and a half bathrooms feature luxurious fixtures and amenities, including soaking tubs and rainfall showers.",
+            "oceanfront terrace": "Enjoy breathtaking views of the Pacific Ocean from the expansive oceanfront terrace, perfect for al fresco dining and relaxation.",
+            "private beach access": "Step directly onto the sandy shores of your own private beach, where you can swim, sunbathe, or enjoy water sports.",
+            "infinity pool": "Take a refreshing dip in the infinity pool overlooking the ocean, surrounded by lush landscaping and lounge chairs.",
+            "outdoor kitchen": "Entertain with ease using the outdoor kitchen, equipped with a barbecue grill, sink, and dining area.",
+            "home theater": "Relax and unwind in the home theater, complete with plush seating and a large screen for movie nights."
+        }
+    },
+    {
+        "id": "6",
+        "estate_title": "Mountain Retreat in Lake Tahoe",
+        "image": "https://i.ibb.co/R74s2n1/Vacation-Rental-1.webp",
+        "segment_name": "Vacation Rental",
+        "description": "Experience the beauty of Lake Tahoe from this cozy mountain retreat, offering rustic charm and modern amenities for the perfect getaway.",
+        "price": "$500 per night",
+        "status": "rent",
+        "area": "1,800 sq ft",
+        "location": "Lake Tahoe, California",
+        "facilities": [
+            "3 bedrooms",
+            "2 bathrooms",
+            "Stone fireplace",
+            "Hot tub",
+            "Game room",
+            "Deck with lake views",
+            "Ski storage"
+        ],
+        "detail_description": {
+            "bedrooms": "Three comfortable bedrooms provide sleeping arrangements for up to six guests, with cozy linens and mountain-themed decor.",
+            "bathrooms": "Two bathrooms feature stone tile showers and contemporary fixtures, ensuring a comfortable stay.",
+            "stone fireplace": "Gather around the stone fireplace in the spacious living area, perfect for cozy evenings indoors.",
+            "hot tub": "Soothe tired muscles in the private hot tub, located on the deck with stunning views of the surrounding mountains.",
+            "game room": "Entertain guests of all ages in the game room, equipped with a pool table, foosball table, and board games.",
+            "deck with lake views": "Relax on the deck with panoramic views of Lake Tahoe, where you can enjoy meals or simply soak in the natural beauty.",
+            "ski storage": "Store your ski equipment securely in the dedicated ski storage area, making it easy to hit the slopes."
+        }
+    }
+]

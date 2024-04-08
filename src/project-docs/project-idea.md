@@ -1,5 +1,6 @@
 # Residential: 
 
+    $$ asole niche egula bivinno property
     -Single-family homes, 
     -townhouses, 
     -apartments,
@@ -7,4 +8,8 @@
 
 
 ### => some demo website links:
-    [ https://www.bproperty.com/en/bangladesh/properties-for-rent/ ]
+    - https://homepress.stylemixthemes.com/main/
+    - https://main.wpresidence.net/
+
+    --real 
+        -https://www.zillow.com/

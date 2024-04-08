@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PropertyCard = ({ property }) => {
-    const { estate_title, description, image, segment_name } = property
+    const { estate_title, description, image, segment_name, id } = property;
+
     return (
         <div className="card max-w-md	 bg-base-200 shadow-xl mb-8">
             <figure><img src={image} alt={estate_title} /></figure>
@@ -12,7 +13,7 @@ const PropertyCard = ({ property }) => {
                 {/* <p><b>Location:</b> {location}</p> */}
                 {description.length > 84 ? <p>{description.slice(0, 106)}....</p> : <p>{description}</p>}
                 <div className="card-actions justify-end">
-                    <Link to="">
+                    <Link to={`property/${id}`}>
                         <button className="btn btn-primary">View Property</button>
                     </Link>
                 </div>

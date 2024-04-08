@@ -4,6 +4,8 @@ import Home from "../components/pages/home/Home";
 import AllProperties from "../components/pages/properties/AllProperties";
 import Login from "../components/pages/login/Login";
 import Register from "../components/pages/register/Register";
+import PropertyDetails from "../components/pages/properties/property-details/PropertyDetails";
+import PrivetRoute from "../components/provet-route/PrivetRoute";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +30,13 @@ export const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register></Register>
+            },
+            {
+                path: "/property/:propertyId",
+                element: <PrivetRoute>
+                    <PropertyDetails></PropertyDetails>
+                </PrivetRoute>,
+                loader: () => fetch('/estate-data.json')
             },
         ]
     },

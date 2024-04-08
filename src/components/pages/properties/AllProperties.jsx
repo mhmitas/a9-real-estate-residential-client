@@ -5,7 +5,7 @@ import PropertyCard from './PropertyCard';
 const AllProperties = () => {
 
     const allProperties = useLoaderData()
-    console.log(allProperties);
+    // console.log(allProperties);
 
     return (
         <div>

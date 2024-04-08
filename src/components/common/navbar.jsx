@@ -21,7 +21,7 @@ const Navbar = () => {
                             {routes.map(route => <li key={route.id}><NavLink to={route.path}>{route.name}</NavLink></li>)}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-2xl font-bold">Reindeer</a>
+                    <Link to="/" className="btn btn-ghost text-2xl font-bold">Reindeer</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -29,7 +29,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end font-bold">
-                    <Link className="btn btn-ghost ">Login</Link>
+                    <Link to="/login" className="btn btn-ghost ">Login</Link>
                 </div>
             </div>
         </nav>

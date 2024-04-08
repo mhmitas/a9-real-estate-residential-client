@@ -14,9 +14,6 @@ const firebaseConfig = {
     appId: import.meta.env.VITE_APPID,
 };
 
-console.log('this is my super gopon', import.meta.env.VITE_PASS);
-console.log('hello');
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)

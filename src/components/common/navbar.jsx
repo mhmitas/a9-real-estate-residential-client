@@ -73,7 +73,7 @@ const Navbar = () => {
                                                         }
                                                     </div>
                                                 </div>
-                                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-200 rounded-box w-52">
+                                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-200 w-52">
                                                     <li>
                                                         <Link to="/profile" className="justify-between">Profile</Link>
                                                     </li>

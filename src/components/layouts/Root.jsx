@@ -9,7 +9,7 @@ const Root = () => {
     return (
         <div className=''>
             <Navbar></Navbar>
-            <Tooltip id="my-tooltip" />
+            <Tooltip id="my-tooltip" className='z-50' />
             <div className='min-h-screen'>
                 <Outlet></Outlet>
             </div>

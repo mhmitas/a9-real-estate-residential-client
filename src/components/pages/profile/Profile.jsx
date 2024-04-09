@@ -20,34 +20,33 @@ const Profile = () => {
     }
 
     return (
-        <div className='my-16 space-y-6'>
-            <div className="card card-side bg-base-200 px-6 py-10 shadow-xl mx-auto max-w-xl">
+        <div className="w-96 flex flex-col bg-base-200 mx-auto mt-10 p-6 items-center">
+            {/* // card body */}
+            <div className="w-full flex flex-col items-center gap-3">
                 <figure className='w-1/3'>
                     <img src={user?.photoURL ? user.photoURL : default_avatur} alt={user?.displayName} className='rounded-full w-full' />
                 </figure>
-                {/* // card body */}
-                <div className="card-body">
-                    <h2 className="card-title">{user?.displayName}</h2>
+                <div className=''>
+                    <h2 className=""><strong>User:</strong> {user?.displayName}</h2>
                     <p><strong>Email:</strong> {user?.email}</p>
                     <br />
-                    <div className="card-actions justify-end">
+                    <div className="">
                         <Link >
                             <button className="btn p-4 btn-primary btn-outline"><FaEdit></FaEdit>Edit Profile</button>
                         </Link>
                     </div>
                 </div>
             </div>
-
             {/* Editing form */}
-            <div className="card bg-base-200 shadow-xl mx-auto w-96">
+            <div className="w-full p-10 hidden">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="*:w-full space-y-6 p-10">
+                    className="flex flex-col gap-3 w-full">
                     <input
                         {...register("username")}
                         type="text"
                         required
-                        className='input input-primary'
+                        className='input input-primary w-full'
                         name="name"
                         placeholder='Username'
                     />
@@ -55,11 +54,11 @@ const Profile = () => {
                         {...register("photoURL")}
                         type="text"
                         required
-                        className='input input-primary'
+                        className='input input-primary w-full'
                         name="name"
                         placeholder='Photo URL'
                     />
-                    <button className='w-full btn btn-primary'>Update</button>
+                    <button className=' mx-auto btn btn-primary'>Update</button>
                 </form>
             </div>
         </div>

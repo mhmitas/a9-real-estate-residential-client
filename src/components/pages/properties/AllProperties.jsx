@@ -10,7 +10,7 @@ const AllProperties = () => {
     return (
         <div>
             <div className='my-6'>
-                <h3 className='text-3xl font-semibold'>Trending Properties</h3>
+                <h3 className='text-4xl font-semibold'>Trending Properties</h3>
                 <p className='text-xl'>Viewed and saved the most over the past 24 hours</p>
             </div>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto'>

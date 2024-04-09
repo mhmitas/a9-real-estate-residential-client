@@ -59,7 +59,7 @@ const Navbar = () => {
                                         <div className='flex gap-4 items-center'>
                                             <div className="dropdown dropdown-end">
                                                 <div
-                                                    data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}
+                                                    data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName ? user?.displayName : user.email}
                                                     tabIndex={0}
                                                     role="button"
                                                     className="btn btn-ghost btn-circle avatar"

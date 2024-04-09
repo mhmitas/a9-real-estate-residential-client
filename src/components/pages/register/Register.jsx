@@ -22,7 +22,7 @@ const Register = () => {
         // createUser with name password, email
         createUser(email, password)
             .then(result => {
-                console.log(result);
+                console.log('result ok');
                 setRegisterError(null);
                 alert('successfully registered')
                 navigate('/')

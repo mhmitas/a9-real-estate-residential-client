@@ -1,12 +1,15 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../../../firebase/firbase.config';
+import ErrorMessageInsideForm from '../../common/error-message/ErrorMessage';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, setLoading } = useContext(AuthContext);
+    const [registerError, setRegisterError] = useState(null);
+    const navigate = useNavigate()
 
     const {
         register,
@@ -15,17 +18,28 @@ const Register = () => {
     } = useForm()
 
     function onSubmit(data) {
-        const { email, password, name } = data;
+        const { email, password, name, photoUrl } = data;
+        // createUser with name password, email
         createUser(email, password)
             .then(result => {
                 console.log(result);
+                setRegisterError(null);
+                alert('successfully registered')
+                navigate('/')
                 if (name) {
                     updateProfile(auth.currentUser, {
                         displayName: name,
                     })
                 }
+                if (photoUrl) {
+                    updateProfile(auth.currentUser, {
+                        photoURL: photoUrl,
+                    })
+                }
             }).catch(error => {
                 console.error(error);
+                setLoading(false);
+                setRegisterError(error.message)
             })
     }
 
@@ -33,6 +47,7 @@ const Register = () => {
         <div className='my-10'>
             <h3 className="text-3xl text-center font-bold my-10">Please Register</h3>
             <div className="max-w-sm mx-auto rounded-md bg-base-200 p-12 space-y-6 ">
+                {registerError && <ErrorMessageInsideForm text2={registerError}></ErrorMessageInsideForm>}
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     className='*:w-full space-y-6 '
@@ -46,10 +61,17 @@ const Register = () => {
                         placeholder='Username'
                     />
                     <input
-                        type="email"
-                        {...register("email")}
+                        {...register("photoUrl")}
+                        type="text"
                         className='input input-primary'
+                        name="photoUrl"
+                        placeholder='Photo URL'
+                    />
+                    <input
+                        {...register("email")}
                         required
+                        type="email"
+                        className='input input-primary'
                         name="email"
                         placeholder='Email'
                     />

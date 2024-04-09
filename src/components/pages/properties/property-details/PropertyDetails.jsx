@@ -1,6 +1,10 @@
 import { useParams, useLoaderData } from 'react-router-dom'
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { firstLetterUppercase } from '../../../../utils/firstLetterUppercase';
+import { useEffect, useState } from 'react';
+
+firstLetterUppercase()
 
 const PropertyDetails = () => {
 
@@ -9,17 +13,19 @@ const PropertyDetails = () => {
     const properties = useLoaderData()
 
     const property = properties.find(p => p.id == propertyId)
-    // console.log(property);
     const { area, description, detail_description, estate_title, facilities, image, location, price, segment_name, status } = property;
 
-    for (const key in detail_description) {
-        if (Object.hasOwnProperty.call(detail_description, key)) {
+    console.log(detail_description);
+    const [detailDescriptions, setDetailDescriptions] = useState([])
+
+    useEffect(() => {
+        for (const key in detail_description) {
             const element = detail_description[key];
-            // console.log(key.trimStart(), ":", element);
+            const updateDetailDescriptions = [...detailDescriptions, `${firstLetterUppercase(key), ":", element}`]
+            setDetailDescriptions(updateDetailDescriptions)
+            console.log(updateDetailDescriptions);
         }
-    }
-    let text = 'abcdefg'
-    console.log(text.trimStart()[0]);
+    }, [])
 
     return (
         <div>

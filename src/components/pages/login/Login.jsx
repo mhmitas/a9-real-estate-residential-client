@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import ErrorMessageInsideForm from '../../common/error-message/ErrorMessage';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
@@ -7,7 +7,8 @@ import { useForm } from 'react-hook-form';
 
 
 const Login = () => {
-    const { login, googleLogin } = useContext(AuthContext)
+    const { login, googleLogin, setLoading } = useContext(AuthContext);
+    const [loginError, setLoadingError] = useState(null)
 
     const {
         register,
@@ -15,22 +16,27 @@ const Login = () => {
         formState: { errors },
     } = useForm()
     function onSubmit(data) {
-        // console.log(data);
         const { email, password } = data;
         login(email, password)
             .then(result => {
-                console.log(result);
+                console.log('log in successful', result.user);
+                setLoadingError(null);
+                setLoading(false)
             }).catch(error => {
                 console.error(error);
+                setLoadingError(error.message);
+                setLoading(false)
             })
     }
 
     function handleGooleSignIn() {
         googleLogin()
             .then(result => {
-                console.log(result);
+                console.log(result.user);
+                setLoading(false)
             }).catch(error => {
-                console.error(error);
+                setLoading(false)
+                alert(error.message);
             })
     }
     function handleTwitterSignIn() {
@@ -43,7 +49,7 @@ const Login = () => {
             <div className='my-10'>
                 <h3 className="text-3xl text-center font-bold my-10">Please Login</h3>
                 <div className='max-w-sm mx-auto rounded-md bg-base-200 p-12 space-y-6 '>
-                    {/* {<ErrorMessageInsideForm></ErrorMessageInsideForm>} */}
+                    {loginError && <ErrorMessageInsideForm text2="Invalid email or password"></ErrorMessageInsideForm>}
                     <form onSubmit={handleSubmit(onSubmit)} className='*:w-full space-y-6 ' >
                         <input
                             {...register("email")}

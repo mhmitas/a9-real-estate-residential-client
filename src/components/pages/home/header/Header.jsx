@@ -14,7 +14,7 @@ const Header = () => {
     return (
 
         <div
-            className='relative'
+            className='relative -z-10'
         >
             <Swiper
                 slidesPerView={1}

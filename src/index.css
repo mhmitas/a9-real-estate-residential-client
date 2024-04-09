@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#banner {
+    /* Prefix required. Even Firefox only supports the -webkit- prefix */
+    /* color: white; */
+    font-weight: 900;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+
+.swiper {
+    width: 600px;
+    height: 300px;
+}

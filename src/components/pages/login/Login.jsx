@@ -1,14 +1,19 @@
 import React, { useContext, useState } from 'react';
 import ErrorMessageInsideForm from '../../common/error-message/ErrorMessage';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { FaXTwitter, FaGoogle } from "react-icons/fa6";
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast'
 
 
 const Login = () => {
     const { login, googleLogin, setLoading } = useContext(AuthContext);
-    const [loginError, setLoadingError] = useState(null)
+    const [loginError, setLoginError] = useState(null);
+
+    const location = useLocation()
+    // console.log(location);
+    const navigate = useNavigate()
 
     const {
         register,
@@ -19,12 +24,13 @@ const Login = () => {
         const { email, password } = data;
         login(email, password)
             .then(result => {
-                console.log('log in successful', result.user);
-                setLoadingError(null);
-                setLoading(false)
+                setLoginError(null);
+                setLoading(false);
+                toast.success('Login successful')
+                navigate(location.state ? location.state : '/')
             }).catch(error => {
-                console.error(error);
-                setLoadingError(error.message);
+                // console.error(error);
+                setLoginError(error.message);
                 setLoading(false)
             })
     }

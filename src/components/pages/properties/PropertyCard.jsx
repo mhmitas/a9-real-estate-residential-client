@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
+import toast from 'react-hot-toast'
 
 const PropertyCard = ({ property }) => {
     const { user } = useContext(AuthContext)
@@ -8,7 +9,7 @@ const PropertyCard = ({ property }) => {
 
     function handleViewDetailBtn() {
         if (!user) {
-            alert("Please sign in to view property")
+            toast("Please sign in to view property! 😊")
         }
     }
 

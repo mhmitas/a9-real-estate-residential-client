@@ -4,7 +4,6 @@ import { FaRegBookmark } from "react-icons/fa6";
 const PropertyDetails = () => {
 
     const { propertyId } = useParams()
-    console.log(propertyId);
 
     const properties = useLoaderData()
     // console.log(properties);

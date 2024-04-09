@@ -5,6 +5,7 @@ import { AuthContext } from '../../../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../../../firebase/firbase.config';
 import ErrorMessageInsideForm from '../../common/error-message/ErrorMessage';
+import toast from 'react-hot-toast'
 
 const Register = () => {
     const { createUser, setLoading } = useContext(AuthContext);
@@ -21,10 +22,10 @@ const Register = () => {
         const { email, password, name, photoUrl } = data;
         // createUser with name password, email
         createUser(email, password)
-            .then(result => {
+            .then(() => {
                 console.log('result ok');
                 setRegisterError(null);
-                alert('successfully registered')
+                toast.success('Registered successfully')
                 navigate('/')
                 if (name) {
                     updateProfile(auth.currentUser, {

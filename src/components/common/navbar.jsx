@@ -13,7 +13,7 @@ const Navbar = () => {
 
     const routes = [
         { name: "Home", path: '/', id: 1 },
-        // { name: "Home", path: '/', id: 2 },
+        { name: "About Us", path: '/about-us', id: 2 },
         // { name: "Home", path: '/', id: 3 },
     ]
 

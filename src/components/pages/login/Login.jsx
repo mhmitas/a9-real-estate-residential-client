@@ -46,6 +46,7 @@ const Login = () => {
                 console.log(result.user);
                 // ekahne abar set loading korechi karon : age theke login kora ache emon account theke again try korle onAuthStateChange loading off korbe na!
                 setLoading(false)
+                toast.success('Login successful')
                 navigate(location.state ? location.state : '/')
             }).catch(error => {
                 setLoading(false)

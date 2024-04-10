@@ -80,10 +80,11 @@ const Register = () => {
                     />
                     <label className='relative'>
                         <input
-                            {...register("password")}
+                            {...register("password", { required: true, minLength: 6, pattern: /^(?=.*[a-z])(?=.*[A-Z]).*$/ })}
                             type={showPw ? 'text' : 'password'}
                             className='input input-primary w-full'
-                            required name="password"
+                            required
+                            name="password"
                             placeholder='Password'
                         />
                         <span onClick={() => setShowPw(!showPw)} className='absolute top-1/3 right-3 text-xl cursor-pointer'>{

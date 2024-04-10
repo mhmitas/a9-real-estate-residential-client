@@ -20,18 +20,19 @@ const Profile = () => {
         // formState: { errors },
     } = useForm()
 
-    const onSubmit = (data) => {
-        console.log(data);
-        updateProfile(auth.currentUser, {
-            displayName: data.name, photoURL: data.photoUrl
-        }).then(() => {
-            // console.log('// Profile updated!');
-            toast.success('Updated')
-            setIsEditing(false)
-            // ...
-        }).catch((error) => {
-            console.log(error);
-        });
+    const onProfileUpdate = (data) => {
+        // console.log(data);
+        if (data.name) {
+            updateProfile(auth.currentUser, {
+                displayName: data.name,
+                photoURL: data.photoUrl,
+            }).then(() => {
+                toast.success('Updated')
+                setIsEditing(false)
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
     }
 
     return (
@@ -56,7 +57,7 @@ const Profile = () => {
                         <button onClick={() => setIsEditing(false)} className='text-2xl btn hover:btn-error mb-1'>×</button>
                     </div>
                     <form
-                        onSubmit={handleSubmit(onSubmit)}
+                        onSubmit={handleSubmit(onProfileUpdate)}
                         className="flex flex-col gap-3 w-full">
                         <input
                             {...register("name")}

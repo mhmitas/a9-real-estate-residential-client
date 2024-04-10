@@ -8,11 +8,13 @@ import PropertyDetails from "../components/pages/properties/property-details/Pro
 import PrivetRoute from "../components/provet-route/PrivetRoute";
 import Profile from "../components/pages/profile/Profile";
 import AboutUs from "../components/pages/about-us/AboutUs";
+import ErrorPage from "../error-page/error-page";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",

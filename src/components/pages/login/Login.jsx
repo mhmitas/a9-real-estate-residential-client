@@ -23,7 +23,7 @@ const Login = () => {
     function onSubmit(data) {
         const { email, password } = data;
         login(email, password)
-            .then(result => {
+            .then(() => {
                 setLoginError(null);
                 setLoading(false);
                 toast.success('Login successful')

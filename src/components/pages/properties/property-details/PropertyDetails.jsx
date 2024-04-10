@@ -2,9 +2,7 @@ import { useParams, useLoaderData } from 'react-router-dom'
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { firstLetterUppercase } from '../../../../utils/firstLetterUppercase';
-import { useEffect, useState } from 'react';
 
-firstLetterUppercase()
 
 const PropertyDetails = () => {
 
@@ -14,22 +12,11 @@ const PropertyDetails = () => {
 
     const property = properties.find(p => p.id == propertyId)
     const { area, description, detail_description, estate_title, facilities, image, location, price, segment_name, status } = property;
-
-    console.log(detail_description);
-    const [detailDescriptions, setDetailDescriptions] = useState([])
-
-    useEffect(() => {
-        for (const key in detail_description) {
-            const element = detail_description[key];
-            const updateDetailDescriptions = [...detailDescriptions, `${firstLetterUppercase(key), ":", element}`]
-            setDetailDescriptions(updateDetailDescriptions)
-            console.log(updateDetailDescriptions);
-        }
-    }, [])
+    // console.log(property);
 
     return (
         <div>
-            <div className="flex flex-col lg:flex-row my-8 bg-base-200">
+            <div className="flex flex-col lg:flex-row mb-8 bg-base-200">
                 <div className=' lg:max-w-[66%]'>
                     <img src={image} alt={segment_name} />
                 </div>
@@ -42,34 +29,35 @@ const PropertyDetails = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <h3>{segment_name}</h3>
+            <div className='p-4'>
+                <h3><strong>Segment Name: </strong>{segment_name}</h3>
                 {/* <h3>{description}</h3> */}
-                <h3>{area}</h3>
-                <div>{status}</div>
-                <div>{price}</div>
+                <h3><strong>Area: </strong>{area}</h3>
+                <div><strong>Status: </strong><span className='badge badge-primary'>{status}</span></div>
+                <div><strong>Price: </strong><span className='badge'>{price}</span></div>
+                <br />
                 <div>
-                    <div>Facilities:</div>
-                    <ul>
+                    <div className='text-xl font-bold my-2'>Facilities:</div>
+                    <ul className='ml-10 list-decimal'>
                         {
                             facilities.map(
-                                (facility, idx) => <li key={idx} className='flex items-center gap-2'><FaRegCheckCircle />{facility}</li>
+                                (facility, idx) => <li key={idx} className='list-disc'>{facility}</li>
                             )
                         }
                     </ul>
                 </div>
-                <div>
-                    <div>Description:</div>
-                    <ul>
-                        {/* {
-                            for (const key in detail_description) {
-                                if (Object.hasOwnProperty.call(detail_description, key)) {
-                                    const element = detail_description[key];
-                                    
-                                }
-                            }
-                        } */}
-                    </ul>
+                <div className='overflow-x-auto'>
+                    <div className='text-xl font-bold mb-2 mt-10'>Details of {segment_name}</div>
+                    <table className="table ">
+                        <tbody className='list-decimal'>
+                            {Object.keys(detail_description).map(
+                                (item, idx) => <tr key={idx} className=''>
+                                    <th>{firstLetterUppercase(item)}</th>
+                                    <td>{detail_description[item]}</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
                 </div>
             </div>
             {/* <button className="btn btn-primary"><FaRegBookmark></FaRegBookmark></button> */}

@@ -28,3 +28,13 @@ const AllProperties = () => {
 };
 
 export default AllProperties;
+
+/**
+ * bathrooms
+ * bedrooms
+ * concierge
+ * fitness center
+ * kitchen
+ * living area
+ * private balcony
+ */

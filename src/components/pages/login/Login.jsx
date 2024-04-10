@@ -5,10 +5,11 @@ import { AuthContext } from '../../../provider/AuthProvider';
 import { FaXTwitter, FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast'
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider, TwitterAuthProvider } from 'firebase/auth';
 
 
 const googleProvider = new GoogleAuthProvider()
+const twitterProvider = new TwitterAuthProvider()
 
 const Login = () => {
     const { login, popUpLogin, setLoading } = useContext(AuthContext);
@@ -51,6 +52,7 @@ const Login = () => {
             }).catch(error => {
                 setLoading(false)
                 alert(error.message);
+                console.log(error);
             })
     }
     function handleTwitterSignIn() {
@@ -96,7 +98,7 @@ const Login = () => {
                         <button onClick={() => handlePopUpLogin(googleProvider)} className='w-full btn btn-outline' >
                             <FaGoogle className=' text-2xl'></FaGoogle> sign in with google
                         </button>
-                        <button onClick={handleTwitterSignIn} className='w-full btn btn-outline' >
+                        <button onClick={() => handlePopUpLogin(twitterProvider)} className='w-full btn btn-outline' >
                             <FaXTwitter className=' text-2xl'></FaXTwitter> sign in with twitter
                         </button>
                     </div>

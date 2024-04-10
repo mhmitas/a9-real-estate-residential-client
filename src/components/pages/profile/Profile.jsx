@@ -7,6 +7,7 @@ import { updateProfile } from 'firebase/auth';
 import { auth } from '../../../firebase/firbase.config';
 import toast from 'react-hot-toast'
 import Helmet from 'react-helmet'
+import 'animate.css';
 
 
 const Profile = () => {
@@ -36,9 +37,9 @@ const Profile = () => {
     }
 
     return (
-        <div className="w-96 flex flex-col bg-base-200 mx-auto mt-10 p-6 items-center">
+        <div className="w-96 flex flex-col bg-base-200 mx-auto mt-10 p-6 items-center animate__animated animate__fadeInTopRight">
             {/* // card body */}
-            <div className="w-full flex flex-col items-center gap-3">
+            <div className="w-full flex flex-col items-center gap-3 ">
                 <figure className='w-1/3'>
                     <img src={user?.photoURL ? user.photoURL : default_avatur} alt={user?.displayName} className='rounded-full w-full' />
                 </figure>
@@ -52,7 +53,7 @@ const Profile = () => {
                     </div>
                 </div>
                 {/* // update form */}
-                <div className={`w-full p-10 pt-4 ${isEditing ? "" : 'hidden'}`}>
+                <div className={`w-full p-10 pt-4  ${isEditing ? "" : 'hidden'}`}>
                     <div className='flex justify-end '>
                         <button onClick={() => setIsEditing(false)} className='text-2xl btn hover:btn-error mb-1'>×</button>
                     </div>

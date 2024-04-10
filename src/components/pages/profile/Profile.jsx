@@ -2,12 +2,36 @@ import { AuthContext } from '../../../provider/AuthProvider';
 import default_avatur from '../../../assets/profile-avatur.jpeg';
 import React, { useContext, useState } from 'react';
 import { FaEdit } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { updateProfile } from 'firebase/auth';
+import { auth } from '../../../firebase/firbase.config';
+import toast from 'react-hot-toast'
+
 
 const Profile = () => {
     const [isEditing, setIsEditing] = useState(false)
     const { user } = useContext(AuthContext)
 
-    function handleFormsubmit() { }
+    const {
+        register,
+        handleSubmit,
+        // watch,
+        // formState: { errors },
+    } = useForm()
+
+    const onSubmit = (data) => {
+        console.log(data);
+        updateProfile(auth.currentUser, {
+            displayName: data.name, photoURL: data.photoUrl
+        }).then(() => {
+            // console.log('// Profile updated!');
+            toast.success('Updated')
+            setIsEditing(false)
+            // ...
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
 
     return (
         <div className="w-96 flex flex-col bg-base-200 mx-auto mt-10 p-6 items-center">
@@ -31,20 +55,22 @@ const Profile = () => {
                         <button onClick={() => setIsEditing(false)} className='text-2xl btn hover:btn-error mb-1'>×</button>
                     </div>
                     <form
+                        onSubmit={handleSubmit(onSubmit)}
                         className="flex flex-col gap-3 w-full">
                         <input
+                            {...register("name")}
                             type="text"
                             className='input input-primary w-full'
-                            name="name"
+                            // required
                             placeholder='Username'
                         />
                         <input
+                            {...register("photoUrl")}
                             type="text"
                             className='input input-primary w-full'
-                            name="name"
+                            // required
                             placeholder='Photo URL'
                         />
-                        {/* <button onClick={() => setIsEditing(false)} className=' mx-auto btn btn-primary'>Update</button> */}
                         <button className=' mx-auto btn btn-primary'>Update</button>
                     </form>
                 </div>

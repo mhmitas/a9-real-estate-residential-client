@@ -5,11 +5,13 @@ import { AuthContext } from '../../../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../../../firebase/firbase.config';
 import ErrorMessageInsideForm from '../../common/error-message/ErrorMessage';
-import toast from 'react-hot-toast'
+import toast from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 
 const Register = () => {
     const { createUser, setLoading } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState(null);
+    const [showPw, setShowPw] = useState(false);
     const navigate = useNavigate()
 
     const {
@@ -51,7 +53,7 @@ const Register = () => {
                 {registerError && <ErrorMessageInsideForm text2={registerError}></ErrorMessageInsideForm>}
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className='*:w-full space-y-6 '
+                    className='*:w-full flex flex-col gap-5 '
                 >
                     <input
                         {...register("name")}
@@ -76,14 +78,18 @@ const Register = () => {
                         name="email"
                         placeholder='Email'
                     />
-                    <input
-                        {...register("password", { required: true, minLength: 6, pattern: /^(?=.*[a-z])(?=.*[A-Z]).*$/ })}
-                        type="text"
-                        className='input input-primary'
-                        required
-                        name="password"
-                        placeholder='Password'
-                    />
+                    <label className='relative'>
+                        <input
+                            {...register("password")}
+                            type={showPw ? 'text' : 'password'}
+                            className='input input-primary w-full'
+                            required name="password"
+                            placeholder='Password'
+                        />
+                        <span onClick={() => setShowPw(!showPw)} className='absolute top-1/3 right-3 text-xl cursor-pointer'>{
+                            showPw ? <FaEyeSlash /> : <FaEye />
+                        }</span>
+                    </label>
                     {/* validate password */}
                     {errors.password && errors.password.type === "minLength" && (<span className='text-error'>Password should be at least 6 characters</span>)}
                     {errors.password && errors.password.type === "pattern" && (<span className='text-error'>Please create a strong password (e.g: xY...)</span>)}

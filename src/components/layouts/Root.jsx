@@ -4,6 +4,8 @@ import Navbar from '../common/navbar';
 import Footer from '../common/Footer';
 import { Tooltip } from 'react-tooltip';
 import { Toaster } from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
+
 
 const Root = () => {
     return (
@@ -15,6 +17,9 @@ const Root = () => {
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
+            <Helmet>
+                <title>Reindeer</title>
+            </Helmet>
         </div>
     );
 };

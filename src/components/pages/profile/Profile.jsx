@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../../../firebase/firbase.config';
 import toast from 'react-hot-toast'
+import Helmet from 'react-helmet'
 
 
 const Profile = () => {
@@ -75,6 +76,9 @@ const Profile = () => {
                     </form>
                 </div>
             </div>
+            <Helmet>
+                <title>Raindeer - Profile</title>
+            </Helmet>
         </div>
     );
 };

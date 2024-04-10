@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const AboutUs = () => {
     return (
@@ -43,6 +44,9 @@ const AboutUs = () => {
                     <p>Thank you for considering Reindeer Real Estate for your real estate needs. We look forward to helping you turn your dreams into reality. Get in touch with us today and let's embark on this exciting journey together!</p>
                 </section>
             </main>
+            <Helmet>
+                <title>Raindeer - About us</title>
+            </Helmet>
         </div>
     );
 };

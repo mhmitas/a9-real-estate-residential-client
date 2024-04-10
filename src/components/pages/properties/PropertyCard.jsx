@@ -1,11 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 import toast from 'react-hot-toast'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const PropertyCard = ({ property }) => {
     const { user } = useContext(AuthContext)
     const { estate_title, description, image, segment_name, id, status, thumbnail_image } = property;
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
 
     function handleViewDetailBtn() {
         if (!user) {
@@ -14,7 +20,7 @@ const PropertyCard = ({ property }) => {
     }
 
     return (
-        <div className="card max-w-md	 bg-base-200 shadow-xl mb-8">
+        <div data-aos="fade-up" className="card max-w-md bg-base-200 shadow-xl mb-8">
             <figure><img src={thumbnail_image} alt={estate_title} /></figure>
             <div className="card-body">
                 <div className='flex justify-between'>

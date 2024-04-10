@@ -5,10 +5,13 @@ import { AuthContext } from '../../../provider/AuthProvider';
 import { FaXTwitter, FaGoogle } from "react-icons/fa6";
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast'
+import { GoogleAuthProvider } from 'firebase/auth';
 
+
+const googleProvider = new GoogleAuthProvider()
 
 const Login = () => {
-    const { login, googleLogin, setLoading } = useContext(AuthContext);
+    const { login, popUpLogin, setLoading } = useContext(AuthContext);
     const [loginError, setLoginError] = useState(null);
 
     const location = useLocation()
@@ -35,11 +38,13 @@ const Login = () => {
             })
     }
 
-    function handleGooleSignIn() {
-        googleLogin()
+    function handlePopUpLogin(provider) {
+        popUpLogin(provider)
             .then(result => {
                 console.log(result.user);
+                // ekahne abar set loading korechi karon : age theke login kora ache emon account theke again try korle onAuthStateChange loading off korbe na!
                 setLoading(false)
+                navigate(location.state ? location.state : '/')
             }).catch(error => {
                 setLoading(false)
                 alert(error.message);
@@ -80,7 +85,7 @@ const Login = () => {
                     <p>Don't have an account! Please <Link to="/register" className='link link-primary'>Register</Link></p>
                     <p className='divider'>OR</p>
                     <div className='flex flex-col justify-center gap-2 text-xl'>
-                        <button onClick={handleGooleSignIn} className='w-full btn btn-outline' >
+                        <button onClick={() => handlePopUpLogin(googleProvider)} className='w-full btn btn-outline' >
                             <FaGoogle className=' text-2xl'></FaGoogle> sign in with google
                         </button>
                         <button onClick={handleTwitterSignIn} className='w-full btn btn-outline' >

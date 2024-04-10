@@ -7,7 +7,6 @@ import Register from "../components/pages/register/Register";
 import PropertyDetails from "../components/pages/properties/property-details/PropertyDetails";
 import PrivetRoute from "../components/provet-route/PrivetRoute";
 import Profile from "../components/pages/profile/Profile";
-import EditProfile from "../components/pages/profile/EditProfile";
 import AboutUs from "../components/pages/about-us/AboutUs";
 
 export const router = createBrowserRouter([

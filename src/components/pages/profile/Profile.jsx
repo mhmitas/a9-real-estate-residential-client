@@ -2,22 +2,12 @@ import { AuthContext } from '../../../provider/AuthProvider';
 import default_avatur from '../../../assets/profile-avatur.jpeg';
 import React, { useContext, useState } from 'react';
 import { FaEdit } from "react-icons/fa";
-import { Link, Outlet } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-
 
 const Profile = () => {
+    const [isEditing, setIsEditing] = useState(false)
     const { user } = useContext(AuthContext)
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm()
 
-    function onSubmit(data) {
-        console.log(data);
-    }
+    function handleFormsubmit() { }
 
     return (
         <div className="w-96 flex flex-col bg-base-200 mx-auto mt-10 p-6 items-center">
@@ -26,40 +16,38 @@ const Profile = () => {
                 <figure className='w-1/3'>
                     <img src={user?.photoURL ? user.photoURL : default_avatur} alt={user?.displayName} className='rounded-full w-full' />
                 </figure>
-                <div className=''>
+                {/* card body */}
+                <div className={`p-4 ${isEditing ? "hidden" : ''}`}>
                     <h2 className=""><strong>User:</strong> {user?.displayName}</h2>
                     <p><strong>Email:</strong> {user?.email}</p>
                     <br />
                     <div className="">
-                        <Link >
-                            <button className="btn p-4 btn-primary btn-outline"><FaEdit></FaEdit>Edit Profile</button>
-                        </Link>
+                        <button onClick={() => setIsEditing(true)} className="btn btn-primary btn-outline"><FaEdit></FaEdit>Edit Profile</button>
                     </div>
                 </div>
-            </div>
-            {/* Editing form */}
-            <div className="w-full p-10 hidden">
-                <form
-                    onSubmit={handleSubmit(onSubmit)}
-                    className="flex flex-col gap-3 w-full">
-                    <input
-                        {...register("username")}
-                        type="text"
-                        required
-                        className='input input-primary w-full'
-                        name="name"
-                        placeholder='Username'
-                    />
-                    <input
-                        {...register("photoURL")}
-                        type="text"
-                        required
-                        className='input input-primary w-full'
-                        name="name"
-                        placeholder='Photo URL'
-                    />
-                    <button className=' mx-auto btn btn-primary'>Update</button>
-                </form>
+                {/* // update form */}
+                <div className={`w-full p-10 pt-4 ${isEditing ? "" : 'hidden'}`}>
+                    <div className='flex justify-end '>
+                        <button onClick={() => setIsEditing(false)} className='text-2xl btn hover:btn-error mb-1'>×</button>
+                    </div>
+                    <form
+                        className="flex flex-col gap-3 w-full">
+                        <input
+                            type="text"
+                            className='input input-primary w-full'
+                            name="name"
+                            placeholder='Username'
+                        />
+                        <input
+                            type="text"
+                            className='input input-primary w-full'
+                            name="name"
+                            placeholder='Photo URL'
+                        />
+                        {/* <button onClick={() => setIsEditing(false)} className=' mx-auto btn btn-primary'>Update</button> */}
+                        <button className=' mx-auto btn btn-primary'>Update</button>
+                    </form>
+                </div>
             </div>
         </div>
     );

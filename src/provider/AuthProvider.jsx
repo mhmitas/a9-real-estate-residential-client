@@ -3,7 +3,6 @@ import React, { createContext, useEffect, useState } from 'react';
 import { auth } from '../firebase/firbase.config';
 
 export const AuthContext = createContext(null)
-const googleProvider = new GoogleAuthProvider()
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -17,9 +16,9 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
-    function googleLogin() {
+    function popUpLogin(provider) {
         setLoading(true)
-        return signInWithPopup(auth, googleProvider)
+        return signInWithPopup(auth, provider)
     }
 
     useEffect(() => {
@@ -37,7 +36,7 @@ const AuthProvider = ({ children }) => {
         setLoading,
         createUser,
         login,
-        googleLogin,
+        popUpLogin,
     }
 
     return (

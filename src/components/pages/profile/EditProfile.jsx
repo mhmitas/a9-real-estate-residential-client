@@ -2,8 +2,6 @@ import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
-import { updateProfile } from 'firebase/auth';
-import { auth } from '../../../firebase/firbase.config';
 
 const EditProfile = () => {
     const { createUser } = useContext(AuthContext)

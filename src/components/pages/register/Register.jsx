@@ -78,22 +78,24 @@ const Register = () => {
                         name="email"
                         placeholder='Email'
                     />
-                    <label className='relative'>
-                        <input
-                            {...register("password", { required: true, minLength: 6, pattern: /^(?=.*[a-z])(?=.*[A-Z]).*$/ })}
-                            type={showPw ? 'text' : 'password'}
-                            className='input input-primary w-full'
-                            required
-                            name="password"
-                            placeholder='Password'
-                        />
-                        <span onClick={() => setShowPw(!showPw)} className='absolute top-1/3 right-3 text-xl cursor-pointer'>{
-                            showPw ? <FaEyeSlash /> : <FaEye />
-                        }</span>
-                    </label>
-                    {/* validate password */}
-                    {errors.password && errors.password.type === "minLength" && (<span className='text-error'>Password should be at least 6 characters</span>)}
-                    {errors.password && errors.password.type === "pattern" && (<span className='text-error'>Please create a strong password (e.g: xY...)</span>)}
+                    <div>
+                        <label className='relative'>
+                            <input
+                                {...register("password", { required: true, minLength: 6, pattern: /^(?=.*[a-z])(?=.*[A-Z]).*$/ })}
+                                type={showPw ? 'text' : 'password'}
+                                className='input input-primary w-full'
+                                required
+                                name="password"
+                                placeholder='Password'
+                            />
+                            <span onClick={() => setShowPw(!showPw)} className='absolute top-1/3 right-3 text-xl cursor-pointer'>{
+                                showPw ? <FaEyeSlash /> : <FaEye />
+                            }</span>
+                        </label>
+                        {/* validate password */}
+                        {errors.password && errors.password.type === "minLength" && (<span className='text-error'>Password should be at least 6 characters</span>)}
+                        {errors.password && errors.password.type === "pattern" && (<span className='text-error'>Please create a strong password (e.g: xY...)</span>)}
+                    </div>
 
                     {/* submit form */}
                     <input type="submit" className=' btn btn-primary' value="Register" />

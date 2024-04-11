@@ -23,17 +23,15 @@ const Profile = () => {
 
     const onProfileUpdate = (data) => {
         // console.log(data);
-        if (data.name) {
-            updateProfile(auth.currentUser, {
-                displayName: data.name,
-                photoURL: data.photoUrl,
-            }).then(() => {
-                toast.success('Updated')
-                setIsEditing(false)
-            }).catch((error) => {
-                console.log(error);
-            });
-        }
+        updateProfile(auth.currentUser, {
+            displayName: data.name,
+            photoURL: data.photoUrl,
+        }).then(() => {
+            toast.success('Updated')
+            setIsEditing(false)
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     return (
@@ -61,7 +59,7 @@ const Profile = () => {
                         onSubmit={handleSubmit(onProfileUpdate)}
                         className="flex flex-col gap-3 w-full">
                         <input
-                            {...register("name")}
+                            {...register("name", { required: true })}
                             type="text"
                             className='input input-primary w-full'
                             // required

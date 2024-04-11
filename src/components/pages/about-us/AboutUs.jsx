@@ -45,7 +45,7 @@ const AboutUs = () => {
                 </section>
             </main>
             <Helmet>
-                <title>Raindeer - About us</title>
+                <title>Reindeer - About us</title>
             </Helmet>
         </div>
     );

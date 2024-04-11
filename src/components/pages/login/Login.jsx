@@ -26,6 +26,7 @@ const Login = () => {
         handleSubmit,
         formState: { errors },
     } = useForm()
+
     function onSubmit(data) {
         const { email, password } = data;
         login(email, password)
@@ -54,9 +55,6 @@ const Login = () => {
                 alert(error.message);
                 console.log(error);
             })
-    }
-    function handleTwitterSignIn() {
-
     }
 
 

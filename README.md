@@ -2,7 +2,6 @@
 ## This website is about residential real estate industry.
 ***url(https://a9-reindeer-realty.web.app/)***
 
-
 ## Features & functionalities :
 
 ## Overview

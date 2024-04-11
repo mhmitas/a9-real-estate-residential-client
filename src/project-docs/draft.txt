@@ -1,12 +1,22 @@
-Latest Properties
-Reindeer Realty: Find Your Perfect Fit - Homes, Townhomes, Apartments, Vacation Rentals ...
-A9-Reindeer-Realty:
 
+Translation results
+Translation result
+The web site has first a home page. The home page has a navbar, banner, list of properties and a footer.
+Here are some animations used in property lists.
 
+The navbar contains the site name, some links and a profile image.
+The profile option will show in the navbar if the user is logged in.
+And clicking on the profile image will open a menubar.
+From now user can log out and go to profile page.
 
+Clicking on the View Property button on the property list cards will open the property detail page, but the user must be logged in. Otherwise, it will go to the login page.
 
+Footer will be visible on all pages.
 
-Page not found
-Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us.
+  There is an about us page and it includes private
 
-Go back home
+Login page has login form with option to login with google and twitter.
+
+The register page contains the register form.
+
+On the profile page, the user can view and edit his profile details.

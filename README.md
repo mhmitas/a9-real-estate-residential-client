@@ -36,6 +36,8 @@
 - React Hook form,
 - Swiper slider
 
+
+### To get a local copy up and running, follow these simple steps.
 Ensure you have the following installed:
 - [Node.js](https://nodejs.org/) (v14 or higher)
 - [npm](https://www.npmjs.com/)

@@ -35,3 +35,16 @@
 - Animate.css,
 - React Hook form,
 - Swiper slider
+
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/)
+
+### Installation
+
+1. **Clone the repo**
+```sh
+   git clone https://github.com/your-username/your-repo-name.git
+ ```
+2. **Add necessary firebase configuration to the .env.local file and add your server URL**
+

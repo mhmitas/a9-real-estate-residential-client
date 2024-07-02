@@ -1,6 +1,6 @@
 # Reindeer real estate
 ## This website is about residential real estate industry.
-***url(https://a9-reindeer-realty.web.app/)***
+***[Live link](https://a9-reindeer-realty.web.app)***
 
 ## Features & functionalities :
 
